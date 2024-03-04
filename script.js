@@ -1,11 +1,11 @@
-function playerSelection() {
+/*function playerSelection() {
     const allowedMoves = ["rock", "paper", "scissors"];
     const choice = window.prompt(`Choose: Rock ✊, Paper ✋, Scissors ✌️?`)?.toLowerCase();
     if (!allowedMoves.includes(choice)){
         return playerSelection();    
     }
     return choice;
-}
+}*/
 
 const computerSelection = () => {
     const choice = Math.floor(Math.random() * (3 - 1 + 1) + 1)
