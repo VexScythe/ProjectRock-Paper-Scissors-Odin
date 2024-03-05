@@ -6,6 +6,13 @@
     }
     return choice;
 }*/
+/* HOW TO CLEAR A CONTAINER
+const container = document.querySelector(".container");
+console.log(container)
+
+container.innerHTML = '';
+*/
+const allowedMoves = ["rock", "paper", "scissors"];
 
 const computerSelection = () => {
     const choice = Math.floor(Math.random() * (3 - 1 + 1) + 1)
