@@ -5,12 +5,15 @@ console.log(container)
 container.innerHTML = '';
 */
 //const allowedChoices = ["rock", "paper", "scissors"];
-let playerScore = document.querySelector("#playerScore");
+
+const container = document.querySelector(".container");
 let winnerSection = document.querySelector(".roundwinner");
 const buttons = document.querySelectorAll(".choice");
-let playerChoice;
+let playerChoice = 'none', compChoice = 'none';
 let tempPlayerScore=0, tempComputerScore=0;
 
+playerSelection.textContent = `${playerChoice}`;
+compSelection.textContent = `${compChoice}`;
 playerScore.textContent = `${tempPlayerScore}`;
 computerScore.textContent = `${tempComputerScore}`;
 
@@ -57,14 +60,27 @@ const computerSelection = () => {
  }
  
  const updateScore = (result) => {
-    switch (result) {
-        case "player":
-            tempPlayerScore++;
-            playerScore.textContent = `${tempPlayerScore}`;
-            break;
-        case "computer":
-            tempComputerScore++;
-            computerScore.textContent = `${tempComputerScore}`;
-            break;
-    }
+        switch (result) {
+            case "player":
+                tempPlayerScore++;
+                playerScore.textContent = `${tempPlayerScore}`;
+                break;
+            case "computer":
+                tempComputerScore++;
+                computerScore.textContent = `${tempComputerScore}`;
+                break;
+        }
+        
+        if (tempPlayerScore === 5 || tempComputerScore === 5){
+            container.innerHTML = '';
+            const winner = tempPlayerScore > tempComputerScore ? "Player" : "Computer";
+            const loser = tempPlayerScore > tempComputerScore ? "Computer" : "Player";
+            const winnerScore = Math.max(tempPlayerScore, tempComputerScore);
+            const looserScore = Math.min(tempPlayerScore, tempComputerScore);
+            container.innerHTML = `<p>${winner} wins ${winnerScore} to ${looserScore}!</p><div class="buttons"><button class="choice" id="playagain">Play Again</button></div>`;
+            const playAgain = document.querySelector("#playagain");
+            playAgain.addEventListener("click", () => {
+                location.reload();
+            });
+        }
  };
