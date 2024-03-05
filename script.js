@@ -74,7 +74,7 @@ const computerSelection = () => {
             const loser = tempPlayerScore > tempComputerScore ? "Computer" : "Player";
             const winnerScore = Math.max(tempPlayerScore, tempComputerScore);
             const looserScore = Math.min(tempPlayerScore, tempComputerScore);
-            container.innerHTML = `<p>${winner} wins ${winnerScore} to ${looserScore}!</p><div class="buttons"><button class="choice" id="playagain">Play Again</button></div>`;
+            container.innerHTML = `<div>${winner} wins ${winnerScore} to ${looserScore}!</div><div class="buttons"><button class="choice" id="playagain">Play Again</button></div>`;
             const playAgain = document.querySelector("#playagain");
             playAgain.addEventListener("click", () => {
                 location.reload();

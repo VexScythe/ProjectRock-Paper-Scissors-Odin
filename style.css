@@ -2,8 +2,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
-    font-family: 'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic,
-    casual, cursive;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
     background-color: #3b3836;
 }
 
@@ -19,16 +18,18 @@ body {
 .header {
     display: flex;
     flex-direction: column;
-    background-color: #1c1b1a;
+    background-color: #d87c1f;
     margin: 0px;
     width: 98%;
 }
 
 .title {
     display: flex;
-    color: #dbae81;
+    color: #1c1b1a;
     justify-content: center;
     font-weight: bold;
+    font-size: 24px;
+    margin: 10px;
 }
 
 .logo {
@@ -39,7 +40,7 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    background-color: #b06317;
+    background-color: #1c1b1a;
     width: 98%;
     flex: 0 0 400px;
     align-items: center;
@@ -48,8 +49,9 @@ body {
 }
 
 .container div {
-    color: #1c1b1a;
+    color: #d87c1f;
     font-size: 24px;
+    margin: 10px;
 }
 
 .container .score {
@@ -71,16 +73,16 @@ body {
 }
 
 .buttons .choice {
-    border: 1px solid #FC0;
+    border: 1px solid #d87c1f;
     outline: none;
     background: none;
-    background-color: #1c1b1a;
+    background-color: #2d2926;
     font-size: 55px;
     padding: 30px;
     border-radius: 60px;
     cursor: pointer;
     transition: all 100ms ease-in;
-    color: #f28a22;
+    color: #d87c1f;
 }
 
 .choice:hover {
@@ -90,14 +92,19 @@ body {
 .footer {
     display: flex;
     flex-direction: column;
-    background-color: #1c1b1a;
+    background-color: #d87c1f;
     width: 98%;
     justify-content: center;
     align-items: center;
-    color: #f28a22;
+    color: #1c1b1a;
     padding-top: 10px;
 }
 
+.footer div {
+    margin: 10px;
+    font-style: italic;
+}
+
 .link {
-    color:#f28a22;
+    color:#1c1b1a;
 }
