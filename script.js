@@ -1,11 +1,3 @@
-/*function playerSelection() {
-    const allowedMoves = ["rock", "paper", "scissors"];
-    const choice = window.prompt(`Choose: Rock ✊, Paper ✋, Scissors ✌️?`)?.toLowerCase();
-    if (!allowedMoves.includes(choice)){
-        return playerSelection();    
-    }
-    return choice;
-}*/
 /* HOW TO CLEAR A CONTAINER
 const container = document.querySelector(".container");
 console.log(container)
@@ -13,16 +5,22 @@ console.log(container)
 container.innerHTML = '';
 */
 //const allowedChoices = ["rock", "paper", "scissors"];
+let playerScore = document.querySelector("#playerScore");
 let winnerSection = document.querySelector(".roundwinner");
 const buttons = document.querySelectorAll(".choice");
 let playerChoice;
+let tempPlayerScore=0, tempComputerScore=0;
+
+playerScore.textContent = `${tempPlayerScore}`;
+computerScore.textContent = `${tempComputerScore}`;
 
 buttons.forEach(button => button.addEventListener("click", () => {
     playerChoice = button.id;
     console.log("Player choice:", playerChoice);
     const computerChoice = computerSelection();
     console.log("Computer choice:", computerChoice);
-    checkWinner(playerChoice, computerChoice);
+    const result = checkRoundWinner(playerChoice, computerChoice);
+    updateScore(result);
 }));
 
 const computerSelection = () => {
@@ -40,11 +38,7 @@ const computerSelection = () => {
     }
  };
 
- function playGame() {
-
- } 
-
- function checkWinner (playerChoice, compChoice) {
+ function checkRoundWinner (playerChoice, compChoice) {
     if (playerChoice === compChoice){
         winnerSection.textContent = `That's a tie!`;
         console.log(`That's a tie!`);
@@ -61,31 +55,16 @@ const computerSelection = () => {
                 return "computer";
               }
  }
-/*
-function playGame () {
- let playerScore = 0,
-     computerScore = 0,
-     winner;
-     for (let i = 1; i < 6; i++){
-        console.log(`________________`);
-        console.log(`Round: ${i}`);
-        winner = checkWinner();
-        if (winner === "player"){
-            playerScore++;
-        } else if (winner === "computer"){
-            computerScore++;
-        }
-     }
-     if (playerScore > computerScore){
-        console.log(`________________`);
-        console.log(`You won the RPS game! ${playerScore} to ${computerScore}`);
-     }else if (playerScore < computerScore){
-        console.log(`________________`);
-        console.log(`You lost the RPS game! ${computerScore} to ${playerScore}`);
-     } else {
-        console.log(`________________`);
-        console.log(`Game ended in a tie! ${playerScore} to ${computerScore}`);
-       }
-}
-
-playGame(); */
+ 
+ const updateScore = (result) => {
+    switch (result) {
+        case "player":
+            tempPlayerScore++;
+            playerScore.textContent = `${tempPlayerScore}`;
+            break;
+        case "computer":
+            tempComputerScore++;
+            computerScore.textContent = `${tempComputerScore}`;
+            break;
+    }
+ };

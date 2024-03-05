@@ -40,15 +40,22 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #b06317;
-    width: 95%;
+    width: 98%;
+    flex: 0 0 400px;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 20px 0 60px 0;
 }
 
-.container p {
+.container div {
     color: #1c1b1a;
     font-size: 24px;
+}
+
+.container .score {
+    display: flex;
+    width: 98%;
+    justify-content: space-evenly;
 }
 
 .buttons {
