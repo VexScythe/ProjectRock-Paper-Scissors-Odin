@@ -12,7 +12,14 @@ console.log(container)
 
 container.innerHTML = '';
 */
-const allowedMoves = ["rock", "paper", "scissors"];
+//const allowedChoices = ["rock", "paper", "scissors"];
+const buttons = document.querySelectorAll(".choice");
+let playerChoice;
+
+buttons.forEach(button => button.addEventListener("click", () => {
+    playerChoice = button.id;
+    console.log(playerChoice);
+}));
 
 const computerSelection = () => {
     const choice = Math.floor(Math.random() * (3 - 1 + 1) + 1)
@@ -29,9 +36,12 @@ const computerSelection = () => {
     }
  };
 
- function checkWinner () {
+ function playGame() {
+
+ } 
+/*
+ function checkWinner (playerChoice) {
     const compChoice = computerSelection();
-    const playerChoice = playerSelection();
     console.log(`Il computer ha scelto ${compChoice}`);
     if (playerChoice === compChoice){
         console.log(`That's a tie!`);
@@ -73,4 +83,4 @@ function playGame () {
        }
 }
 
-playGame();
+playGame(); */
