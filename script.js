@@ -13,12 +13,16 @@ console.log(container)
 container.innerHTML = '';
 */
 //const allowedChoices = ["rock", "paper", "scissors"];
+let winnerSection = document.querySelector(".roundwinner");
 const buttons = document.querySelectorAll(".choice");
 let playerChoice;
 
 buttons.forEach(button => button.addEventListener("click", () => {
     playerChoice = button.id;
-    console.log(playerChoice);
+    console.log("Player choice:", playerChoice);
+    const computerChoice = computerSelection();
+    console.log("Computer choice:", computerChoice);
+    checkWinner(playerChoice, computerChoice);
 }));
 
 const computerSelection = () => {
@@ -39,24 +43,25 @@ const computerSelection = () => {
  function playGame() {
 
  } 
-/*
- function checkWinner (playerChoice) {
-    const compChoice = computerSelection();
-    console.log(`Il computer ha scelto ${compChoice}`);
+
+ function checkWinner (playerChoice, compChoice) {
     if (playerChoice === compChoice){
+        winnerSection.textContent = `That's a tie!`;
         console.log(`That's a tie!`);
         return "tie"
     }else if (playerChoice === 'rock' && compChoice === 'scissors' ||
               playerChoice === 'paper' && compChoice === 'rock' ||
               playerChoice === 'scissors' && compChoice === 'paper'){
+                winnerSection.textContent = `You won! ${playerChoice} beats ${compChoice}`;
                 console.log(`You won! ${playerChoice} beats ${compChoice}`)
                 return "player";
               }else {
+                winnerSection.textContent = `You lost! ${compChoice} beats ${playerChoice}`;
                 console.log(`You lost! ${compChoice} beats ${playerChoice}`);
                 return "computer";
               }
  }
-
+/*
 function playGame () {
  let playerScore = 0,
      computerScore = 0,
