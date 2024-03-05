@@ -19,9 +19,9 @@ computerScore.textContent = `${tempComputerScore}`;
 
 buttons.forEach(button => button.addEventListener("click", () => {
     playerChoice = button.id;
-    console.log("Player choice:", playerChoice);
+    playerSelection.textContent = `${playerChoice}`;
     const computerChoice = computerSelection();
-    console.log("Computer choice:", computerChoice);
+    compSelection.textContent = `${computerChoice}`;
     const result = checkRoundWinner(playerChoice, computerChoice);
     updateScore(result);
 }));
@@ -44,17 +44,14 @@ const computerSelection = () => {
  function checkRoundWinner (playerChoice, compChoice) {
     if (playerChoice === compChoice){
         winnerSection.textContent = `That's a tie!`;
-        console.log(`That's a tie!`);
         return "tie"
     }else if (playerChoice === 'rock' && compChoice === 'scissors' ||
               playerChoice === 'paper' && compChoice === 'rock' ||
               playerChoice === 'scissors' && compChoice === 'paper'){
                 winnerSection.textContent = `You won! ${playerChoice} beats ${compChoice}`;
-                console.log(`You won! ${playerChoice} beats ${compChoice}`)
                 return "player";
               }else {
                 winnerSection.textContent = `You lost! ${compChoice} beats ${playerChoice}`;
-                console.log(`You lost! ${compChoice} beats ${playerChoice}`);
                 return "computer";
               }
  }
